@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#1D9E75">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Life Tracker">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/icon.svg">
+  <title>Life Tracker</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1 class="app-title">Life Tracker</h1>
+    <button class="icon-btn" id="btn-settings" aria-label="Настройки">
+      <i class="ti ti-settings"></i>
+    </button>
+  </header>
+
+  <main class="tab-content" id="tab-content">
+    <div class="loading-screen">
+      <div class="spinner"></div>
+    </div>
+  </main>
+
+  <nav class="tab-bar">
+    <button class="tab-btn active" data-tab="today" aria-label="Сегодня">
+      <i class="ti ti-sun"></i>
+      <span>Сегодня</span>
+    </button>
+    <button class="tab-btn" data-tab="schedule" aria-label="Расписание">
+      <i class="ti ti-calendar-time"></i>
+      <span>Расписание</span>
+    </button>
+    <button class="tab-btn" data-tab="workout" aria-label="Тренировка">
+      <i class="ti ti-barbell"></i>
+      <span>Тренировка</span>
+    </button>
+    <button class="tab-btn" data-tab="smoke" aria-label="Курение">
+      <i class="ti ti-smoking"></i>
+      <span>Курение</span>
+    </button>
+    <button class="tab-btn" data-tab="stats" aria-label="Итоги">
+      <i class="ti ti-chart-bar"></i>
+      <span>Итоги</span>
+    </button>
+  </nav>
+
+  <!-- Оверлей настроек -->
+  <div class="overlay hidden" id="overlay-settings">
+    <div class="overlay-sheet">
+      <div class="overlay-header">
+        <span class="overlay-title">Настройки</span>
+        <button class="icon-btn" id="btn-settings-close"><i class="ti ti-x"></i></button>
+      </div>
+      <div class="overlay-body" id="settings-content"></div>
+    </div>
+  </div>
+
+  <!-- Оверлей активной тренировки -->
+  <div class="overlay hidden" id="overlay-workout">
+    <div class="overlay-sheet">
+      <div class="overlay-header">
+        <span class="overlay-title">Тренировка</span>
+        <button class="icon-btn" id="btn-workout-close"><i class="ti ti-x"></i></button>
+      </div>
+      <div class="overlay-body" id="workout-session-content"></div>
+    </div>
+  </div>
+
+  <!-- Оверлей добавления привычки -->
+  <div class="overlay hidden" id="overlay-habit-form">
+    <div class="overlay-sheet overlay-sheet--sm">
+      <div class="overlay-header">
+        <span class="overlay-title">Новая привычка</span>
+        <button class="icon-btn" id="btn-habit-form-close"><i class="ti ti-x"></i></button>
+      </div>
+      <div class="overlay-body" id="habit-form-content"></div>
+    </div>
+  </div>
+
+  <!-- Оверлей добавления блока расписания -->
+  <div class="overlay hidden" id="overlay-block-form">
+    <div class="overlay-sheet overlay-sheet--sm">
+      <div class="overlay-header">
+        <span class="overlay-title" id="block-form-title">Новый блок</span>
+        <button class="icon-btn" id="btn-block-form-close"><i class="ti ti-x"></i></button>
+      </div>
+      <div class="overlay-body" id="block-form-content"></div>
+    </div>
+  </div>
+
+  <!-- Оверлей редактирования сна -->
+  <div class="overlay hidden" id="overlay-sleep-form">
+    <div class="overlay-sheet overlay-sheet--sm">
+      <div class="overlay-header">
+        <span class="overlay-title">Режим сна</span>
+        <button class="icon-btn" id="btn-sleep-form-close"><i class="ti ti-x"></i></button>
+      </div>
+      <div class="overlay-body" id="sleep-form-content"></div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
